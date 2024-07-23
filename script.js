@@ -1,7 +1,7 @@
 
 const exercisePlan = {
     "2024-08-05": "Rest",
-    "2024-07-23": "7M (1M jog, 4 x 1M fast, 400m jog rec., 1M jog)",
+    "2024-08-06": "7M (1M jog, 4 x 1M fast, 400m jog rec., 1M jog)",
     "2024-08-07": "7M (63 mins) easy",
     "2024-08-08": "4M (32 mins) marathon pace",
     "2024-08-09": "Rest",
