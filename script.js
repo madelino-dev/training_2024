@@ -86,8 +86,9 @@ const exercisePlan = {
     "2024-10-27": "Race day"
 };
 
-function getFormattedDate() {
+function getFormattedDate(offset = 0) {
     const date = new Date();
+    date.setDate(date.getDate() + offset);
     let month = '' + (date.getMonth() + 1);
     let day = '' + date.getDate();
     const year = date.getFullYear();
@@ -102,8 +103,19 @@ function getFormattedDate() {
 
 function showExerciseForToday() {
     const today = getFormattedDate();
-    const exercise = exercisePlan[today] || "No exercise plan for today.";
-    document.getElementById('exercise-plan').innerText = exercise;
+    const exerciseToday = exercisePlan[today] || "No exercise plan for today.";
+    document.getElementById('exercise-plan-today').innerText = `Today: ${exerciseToday}`;
+
+    const upcomingExercises = document.getElementById('upcoming-exercises');
+    upcomingExercises.innerHTML = ''; // Clear previous content
+
+    for (let i = 1; i <= 3; i++) {
+        const nextDate = getFormattedDate(i);
+        const exercise = exercisePlan[nextDate] || "Rest";
+        const listItem = document.createElement('li');
+        listItem.innerText = `${nextDate}: ${exercise}`;
+        upcomingExercises.appendChild(listItem);
+    }
 }
 
 window.onload = showExerciseForToday;
