@@ -107,7 +107,10 @@ function showExerciseForToday() {
     document.getElementById('exercise-plan-today').innerText = `Today: ${exerciseToday}`;
 
     const upcomingExercises = document.getElementById('upcoming-exercises');
+    const previousExercises = document.getElementById('previous-exercises');
+    
     upcomingExercises.innerHTML = ''; // Clear previous content
+    previousExercises.innerHTML = '';
 
     for (let i = 1; i <= 3; i++) {
         const nextDate = getFormattedDate(i);
@@ -115,6 +118,14 @@ function showExerciseForToday() {
         const listItem = document.createElement('li');
         listItem.innerText = `${nextDate}: ${exercise}`;
         upcomingExercises.appendChild(listItem);
+    }
+    // Add previous exercises
+    for (let i = -4; i <= -1; i++) {
+        const prevDate = getFormattedDate(i);
+        const exercise = exercisePlan[prevDate] || "Rest";
+        const listItem = document.createElement('li');
+        listItem.innerText = `${prevDate}: ${exercise}`;
+        previousExercises.appendChild(listItem);
     }
 }
 
