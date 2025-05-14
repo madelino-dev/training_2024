@@ -195,7 +195,7 @@ function showExerciseForToday() {
     upcomingExercises.innerHTML = ''; // Clear previous content
     previousExercises.innerHTML = '';
 
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 4; i++) {
         const nextDate = getFormattedDate(i);
         const exercise = exercisePlan[nextDate] || "Rest";
         const listItem = document.createElement('li');
